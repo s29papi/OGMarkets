@@ -12,6 +12,7 @@ import { requestLogger } from './middleware/validation';
 // Import routes
 import healthRoutes from './routes/health';
 import wagerRoutes from './routes/wagers';
+import musicRoutes from './routes/music';
 // import evidenceRoutes from './routes/evidence';
 // import arbitrationRoutes from './routes/arbitration';
 
@@ -66,6 +67,7 @@ export function createApp(): express.Application {
   // API routes
   app.use('/health', healthRoutes);
   app.use('/api/wagers', wagerRoutes);
+  app.use('/api/music', musicRoutes);
 //   app.use('/api/evidence', evidenceRoutes);
 //   app.use('/api/arbitration', arbitrationLimiter, arbitrationRoutes);
 
@@ -78,6 +80,7 @@ export function createApp(): express.Application {
       endpoints: {
         health: '/health',
         wagers: '/api/wagers',
+        music: '/api/music',
         evidence: '/api/evidence',
         arbitration: '/api/arbitration'
       }

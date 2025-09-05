@@ -5,6 +5,7 @@ import { logger } from '../../utils/logger';
 import { factCheckingRules } from './factCheck';
 import { predictionRules } from './prediction';
 import { sportsRules } from './sports';
+import { musicChartRules } from './music';
 import type { ArbitrationProfile } from '../../types';
 
 export interface ArbitrationContext {
@@ -34,7 +35,8 @@ export interface RuleEngine {
 const ruleEngines: RuleEngine[] = [
   factCheckingRules,
   predictionRules,
-  sportsRules
+  sportsRules,
+  musicChartRules
 ];
 
 /**

@@ -1,0 +1,91 @@
+Overview
+
+We’re building ZeroGravity Judge — a P2P wager protocol on 0G where both sides escrow on the 0G Chain, submit evidence to 0G Storage, and trigger an AI arbitration job on 0G Compute. The compute job returns a signed resolution that the contract verifies for payout.
+
+To-Do: Wave Deliverables
+1. Smart Contract Layer
+
+ Finalize and deploy ZeroGravity Judge contract with:
+
+Escrow deposit handling
+
+Objective claims + evidence source declarations
+
+Arbitration profile binding (model + policy)
+
+Payout logic with configurable confidence thresholds
+
+ Implement receipt verification (signed arbitration results: winner, confidence, trace URI).
+
+ Add fallback dispute flow: M-of-N receipt verification across multiple providers.
+
+ Write unit + integration tests for full lifecycle: escrow → evidence → arbitration → payout.
+
+2. Arbitration-Driven Architecture
+
+ Integrate Judge contract with 0G Compute for job submission.
+
+ Add automatic retry logic for failed arbitration jobs.
+
+ Ensure arbitration profiles (model/policy) are configurable at wager creation.
+
+ Build modular interface for easy addition of:
+
+New arbitration models
+
+New dispute rules
+
+New evidence types
+
+3. Distributed Arbitration & Node Connectivity
+
+ Implement multi-node arbitration execution on 0G Compute.
+
+ Add M-of-N consensus enforcement for disputes.
+
+ Store all evidence in 0G Storage with root hash verification for integrity.
+
+ Stress-test multi-node arbitration to ensure redundancy and fault tolerance.
+
+4. API Surface
+
+ Finalize and document API endpoints:
+
+Core Services: /api/health, /api/wager/status/:id
+
+Wager Lifecycle: /api/wager/create, /api/wager/escrow, /api/wager/resolve, /api/wager/receipt/:id, /api/wager/dispute/:id
+
+Evidence Handling: /api/evidence/upload, /api/evidence/info/:rootHash, /api/wager/:id/evidence
+
+Arbitration Jobs: /api/arbitration/run, /api/arbitration/result/:jobId, trace + confidence metadata
+
+ Build frontend examples to consume APIs (create wager, submit evidence, fetch resolution).
+
+5. Stress Testing & Validation
+
+ Run realistic wager scenarios end-to-end to validate full lifecycle.
+
+ Benchmark arbitration job latency and payout settlement times.
+
+ Simulate disputes with multiple arbitration providers to validate M-of-N mechanism.
+
+ Log and analyze edge cases (failed submissions, delayed receipts, mismatched results).
+
+6. Documentation & Readiness
+
+ Write developer docs explaining end-to-end wager flow.
+
+ Document API reference with sample requests/responses.
+
+ Prepare deployment guide for Judge contract and backend services.
+
+ Record demo video showing escrow, arbitration, and payout in action.
+
+
+ Folders created
+ 1. Smart Contract Layer
+ 2. Arbitration-Driven Architecture
+ 3. Distributed Arbitration & Node Connectivity
+ 4. API Surface
+ 5. Stress Testing & Validation
+ 6. Documentation & Readiness
